@@ -1,16 +1,20 @@
-users: list = [
-    {'name': 'Julia', 'location': 'Ząbki', 'posts': 10},
-    {'name': 'Julia', 'location': 'Sokółka', 'posts': 20},
-    {'name': 'Klaudia', 'location': 'Warszawa', 'posts': 15},
-    {'name': 'Marcin', 'location': 'Grudziądz', 'posts': 1000},
-    {'name': 'Mateusz', 'location': 'Lublin', 'posts': 100},
-]
+from utils.model import users
+from utils.controller import get_user_info
 
 
-def get_user_info(users_data) -> None:
-    for user in users_data:
-        print(f'Twój znajomy  {user["name"]} z miejscowości {user["location"]} opublikował {user["posts"]}')
+def main():
+    print(f'Witaj {users[0] ["name"]}')
+    while True:
+        print("=====MENU=====")
+        print("0 - Zakończ program")
+        print("1 - Wyświetl znajomych")
+        print("2 - Dodaj znajomego")
+        print("==============")
+
+        choice = input("Wybierz opcję menu")
+        if choice == "0":break
+        if choice == "1":get_user_info(users[1:])
 
 
-print(f'Witaj {users[0]["name"]}')
-get_user_info(users[1:])
+if __name__ == '__main__':
+    main()
